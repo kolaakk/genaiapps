@@ -14,30 +14,14 @@ policies using embeddings + cosine similarity.
 - Containerized frontend + backend
 - Azure Container Apps deployment (Bicep)
 
-## Local Run (Docker Compose style with 2 containers)
-1) Create env files:
-- copy `.env.example` to `.env` (root) for your reference
-- set env vars in your shell or in Azure Container Apps
+# 🏗 Architecture Overview
 
-2) Backend:
-```bash
-cd backend
-docker build -t policy-backend:local .
-docker run --rm -p 8000:8000 \
-  -e AZURE_OPENAI_ENDPOINT="https://open-ai-resource-rob.openai.azure.com" \
-  -e AZURE_OPENAI_API_KEY="(from KeyVault: open-ai-keys-rob / open-ai-key-rob)" \
-  -e AZURE_OPENAI_CHAT_DEPLOYMENT="gpt-4o-mini" \
-  -e AZURE_OPENAI_EMBED_DEPLOYMENT="text-embedding-3-large" \
-  -e AZURE_OPENAI_API_VERSION_CHAT="2024-08-01-preview" \
-  -e AZURE_OPENAI_API_VERSION_EMBED="2023-05-15" \
-  -e APP_API_KEY="local-dev-key" \
-  policy-backend:local
+Frontend (React + Vite)
+        ↓ REST
+Backend (FastAPI)
+        ↓
+Azure OpenAI:
+   - gpt-4o-mini (analysis)
+   - text-embedding-3-large (policy similarity)
 
-cd frontend
-docker build -t policy-frontend:local .
-docker run --rm -p 3000:80 \
-  -e VITE_API_BASE_URL="http://localhost:8000" \
-  -e VITE_APP_API_KEY="local-dev-key" \
-  policy-frontend:local
-
-  
+Backend is stateless and horizontally scalable.
