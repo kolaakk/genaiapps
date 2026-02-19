@@ -25,3 +25,47 @@ Azure OpenAI:
    - text-embedding-3-large (policy similarity)
 
 Backend is stateless and horizontally scalable.
+
+genaiapps/
+├─ README.md
+├─ .gitignore
+├─ .env.example
+├─ infra/
+│  ├─ bicep/
+│  │  ├─ main.bicep
+│  │  ├─ main.parameters.json
+│  │  └─ modules/
+│  │     ├─ containerApps.bicep
+│  │     └─ acr.bicep
+│  └─ scripts/
+│     ├─ deploy.sh
+│     └─ build_push.sh
+├─ backend/
+│  ├─ Dockerfile
+│  ├─ pyproject.toml
+│  ├─ src/
+│  │  ├─ app/
+│  │  │  ├─ main.py
+│  │  │  ├─ settings.py
+│  │  │  ├─ schemas.py
+│  │  │  ├─ security.py
+│  │  │  ├─ openai_client.py
+│  │  │  ├─ policy_store.py
+│  │  │  ├─ evals.py
+│  │  │  └─ utils.py
+│  │  └─ data/
+│  │     └─ policies.json
+│  └─ tests/
+│     └─ test_health.py
+└─ frontend/
+   ├─ Dockerfile
+   ├─ nginx.conf
+   ├─ package.json
+   ├─ tsconfig.json
+   ├─ vite.config.ts
+   ├─ index.html
+   └─ src/
+      ├─ main.tsx
+      ├─ App.tsx
+      ├─ api.ts
+      └─ styles.css
