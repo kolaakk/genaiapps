@@ -1,0 +1,32 @@
+[
+  {
+    "policy_id": "POL-001",
+    "title": "Access Control & Least Privilege",
+    "excerpt": "Ensure role-based access control, periodic access reviews, and least privilege for all systems.",
+    "text_for_embedding": "Role-based access control, least privilege, access reviews, privileged accounts, separation of duties."
+  },
+  {
+    "policy_id": "POL-002",
+    "title": "Data Protection & PII Handling",
+    "excerpt": "Classify data, minimize collection, encrypt in transit/at rest, and apply DLP controls.",
+    "text_for_embedding": "PII handling, data classification, encryption, retention, DLP, GDPR, masking, redaction."
+  },
+  {
+    "policy_id": "POL-003",
+    "title": "Change Management",
+    "excerpt": "All production changes require approval, testing evidence, rollback plan, and CAB where applicable.",
+    "text_for_embedding": "Change approvals, CAB, testing evidence, rollback plan, release management, production changes."
+  },
+  {
+    "policy_id": "POL-004",
+    "title": "Logging, Monitoring & Incident Response",
+    "excerpt": "Central logging, alerting, SIEM integration, incident playbooks, and post-incident reviews.",
+    "text_for_embedding": "SIEM, logging, monitoring, alerting, incident response, playbooks, audit logs."
+  },
+  {
+    "policy_id": "POL-005",
+    "title": "Third-Party & Vendor Risk",
+    "excerpt": "Assess vendors, ensure contractual security clauses, and monitor ongoing risk.",
+    "text_for_embedding": "Vendor risk assessment, third-party risk, security clauses, due diligence, monitoring."
+  }
+]
